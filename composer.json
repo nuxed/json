@@ -1,0 +1,45 @@
+{
+    "name": "nuxed/json",
+    "type": "library",
+    "description": "Nuxed Json - Encode, and Decode Json Safely",
+    "license": "MIT",
+    "keywords": [
+        "nuxed",
+        "hhvm",
+        "hack",
+        "json",
+        "type-assert",
+        "type-spec",
+        "type-safety",
+        "encoding"
+    ],
+    "authors": [
+        {
+            "name": "azjezz",
+            "email": "azjezz@protonmail.com"
+        },
+        {
+            "name": "Nuxed Community",
+            "homepage": "https://github.com/nuxed/json/graphs/contributors"
+        }
+    ],
+    "require": {
+        "hhvm": "^4.25",
+        "hhvm/type-assert": "^3.6"
+    },
+    "require-dev": {
+        "facebook/fbexpect": "^2.7",
+        "hhvm/hacktest": "^1.6",
+        "hhvm/hhast": "^4.25"
+    },
+    "scripts": {
+        "check": [
+            "@type-check",
+            "@lint",
+            "@test"
+        ],
+        "lint": "hhast-lint -v src/",
+        "test": "hacktest tests/",
+        "type-check": "hh_client src/"
+    }
+}
