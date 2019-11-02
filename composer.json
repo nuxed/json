@@ -1,18 +1,8 @@
 {
     "name": "nuxed/json",
     "type": "library",
-    "description": "Nuxed Json - Encode, and Decode Json Safely",
+    "description": "Nuxed Json",
     "license": "MIT",
-    "keywords": [
-        "nuxed",
-        "hhvm",
-        "hack",
-        "json",
-        "type-assert",
-        "type-spec",
-        "type-safety",
-        "encoding"
-    ],
     "authors": [
         {
             "name": "azjezz",

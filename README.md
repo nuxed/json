@@ -9,7 +9,7 @@
 
 # Nuxed Json
  
-Nuxed Json provides functions that help you encode, and decode json structures safely.
+The Nuxed Json component provides functions that help you encode, and decode json structures safely.
 
 ### Installation
 
@@ -26,7 +26,7 @@ use namespace Nuxed\Json;
 use namespace Facebook\TypeSpec;
 
 <<__EntryPoint>>
-async function main(): void {
+async function main(): Awaitable<void> {
   $data = Json\encode(dict[
     'foo' => 5,
     'bar' => 6
@@ -43,10 +43,10 @@ async function main(): void {
 
 ### Security
 
-For information on reporting security vulnerabilities in Nuxed Json, see [SECURITY.md](SECURITY.md).
+For information on reporting security vulnerabilities in Nuxed, see [SECURITY.md](SECURITY.md).
 
 ---
 
 ### License
 
-The Nuxed Json library is open-sourced software licensed under the MIT-licensed.
+Nuxed is open-sourced software licensed under the MIT-licensed.
