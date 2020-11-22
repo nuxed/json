@@ -9,7 +9,12 @@ function decode(string $json, bool $assoc = true): dynamic {
       $json,
       $assoc,
       512,
-      \JSON_BIGINT_AS_STRING | \JSON_FB_HACK_ARRAYS,
+      \JSON_BIGINT_AS_STRING |
+        (
+          \defined('JSON_FB_HACK_ARRAYS')
+            ? \constant('\JSON_FB_HACK_ARRAYS')
+            : 0
+        ),
     );
   } catch (\Throwable $e) {
     // assoc = true & invalid property name results in `\Error`

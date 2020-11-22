@@ -7,6 +7,7 @@ use namespace Facebook\{TypeAssert, TypeSpec};
  */
 function spec<T>(string $json, TypeSpec\TypeSpec<T> $spec): T {
   $value = decode($json);
+
   try {
     return $spec->assertType($value);
   } catch (TypeAssert\IncorrectTypeException $e) {

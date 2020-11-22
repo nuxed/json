@@ -7,6 +7,7 @@ function encode(mixed $value, bool $pretty = false, int $flags = 0): string {
   $flags |= \JSON_UNESCAPED_UNICODE |
     \JSON_UNESCAPED_SLASHES |
     \JSON_PRESERVE_ZERO_FRACTION;
+
   if ($pretty) {
     $flags |= \JSON_PRETTY_PRINT;
   }
