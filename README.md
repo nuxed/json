@@ -32,7 +32,10 @@ async function main(): Awaitable<void> {
     'bar' => 6
   ]);
 
-  // $decoded is dict<string, int>
+  // using reified generics.
+  $decoded = Json\typed<dict<string, int>>($data);
+
+  // using type spec.
   $decoded = Json\spec($data, TypeSpec\dict(
     TypeSpec\string(), TypeSpec\int();
   ));
