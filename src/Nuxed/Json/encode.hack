@@ -12,10 +12,10 @@ function encode(mixed $value, bool $pretty = false, int $flags = 0): string {
     $flags |= \JSON_PRETTY_PRINT;
   }
 
-  $json = \json_encode($value, $flags);
-  $error = \json_last_error();
-  if (\JSON_ERROR_NONE !== $error) {
-    throw new Exception\JsonEncodeException(Errors[$error], $error);
+  $error = null;
+  $json = \json_encode_with_error($value, inout $error, $flags);
+  if ($error is nonnull && \JSON_ERROR_NONE !== $error[0]) {
+    throw new Exception\JsonEncodeException(Errors[$error[0]], $error[0]);
   }
 
   return $json;

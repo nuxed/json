@@ -5,8 +5,10 @@ namespace Nuxed\Json;
  */
 function decode(string $json, bool $assoc = true): dynamic {
   try {
-    $value = \json_decode(
+    $error = null;
+    $value = \json_decode_with_error(
       $json,
+      inout $error,
       $assoc,
       512,
       \JSON_BIGINT_AS_STRING |
@@ -26,9 +28,8 @@ function decode(string $json, bool $assoc = true): dynamic {
     );
   }
 
-  $error = \json_last_error();
-  if (\JSON_ERROR_NONE !== $error) {
-    throw new Exception\JsonDecodeException(Errors[$error], $error);
+  if ($error is nonnull && \JSON_ERROR_NONE !== $error[0]) {
+    throw new Exception\JsonDecodeException(Errors[$error[0]], $error[0]);
   }
 
   return $value;
